@@ -26,7 +26,7 @@ export default function WelcomePage({ navigation }) {
                 <SisProSvgComponent />
                 <Text style={{ textAlign: 'center' }}>1.0.0</Text>
             </View>
-            <StatusBar style="auto" />
+            <StatusBar style="light" />
         </View>
     )
 }

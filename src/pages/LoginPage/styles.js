@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
         backgroundColor: colors.primary,
         alignItems: 'center',
         padding: 40,
+        paddingTop: 100
     },
     rowIcons: {
         alignItems: 'center'
@@ -24,17 +25,13 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     formView: {
-        flex: 1,
+        flex: 0.7,
         padding: 20,
-        shadowColor: '#000000',
-        shadowOffset: { width: -2, height: 4 },
-        shadowOpacity: 1,
-        shadowRadius: 3,
         borderRadius: 10,
         backgroundColor: 'white',
         bottom: 100
     },
-    userInput: {
+    userView: {
         borderColor: colors.fontDarkGray,
         borderStyle: 'solid',
         borderWidth: 2,
@@ -51,20 +48,20 @@ export const styles = StyleSheet.create({
         borderWidth: 2,
         borderRadius: 10,
         padding: 10,
-        fontSize: 20,
         marginBottom: 20
     },
-    textInput: {
-        fontSize: 50
+    inputText: {
+        marginLeft: 10,
+        fontSize: 22
     },
     loginButton: {
         backgroundColor: colors.primary,
         borderRadius: 40,
         flexDirection: 'row',
-        paddingVertical: 5,
-        paddingHorizontal: 10,
-        width: 100,
-        justifyContent: 'space-between'
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        width: 140,
+        justifyContent: 'space-between',
     },
     buttonView: {
         flexDirection: 'row',
@@ -72,6 +69,6 @@ export const styles = StyleSheet.create({
     },
     textButton: {
         color: colors.white,
-        fontSize: 16
+        fontSize: 20
     }
 })

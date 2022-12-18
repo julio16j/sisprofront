@@ -3,8 +3,8 @@ import { View, Text, TouchableOpacity, TextInput } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import { styles } from './styles'
 import { colors } from '../../utils/colors'
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons'
+import Ionicons from '@expo/vector-icons/Ionicons'
 export default function LoginPage() {
     return (
         <View style={styles.container}>
