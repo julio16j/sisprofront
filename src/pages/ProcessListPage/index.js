@@ -44,7 +44,7 @@ export default function ProcessListPage({
         }).start();
     }
     function filterProcessListByText (list, filterText) {
-        return [...list.filter(filterProcessModelByText(filterText))]
+        return list.filter((process) => filterProcessModelByText(process, filterText))
     }
     async function getUserFromStorage () {
         setUser(await getData('user'))

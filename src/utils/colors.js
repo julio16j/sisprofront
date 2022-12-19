@@ -9,5 +9,6 @@ export const colors = {
     black: '#000',
     sucess: '#0C7040',
     error: '#FF0000',
+    backgroundError: '#C72C41',
     warning: '#EF8D32'
 }

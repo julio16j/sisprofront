@@ -2,19 +2,13 @@ import { StyleSheet } from 'react-native'
 import { colors } from '../../utils/colors'
 export const styles = StyleSheet.create({
     container: {
-        flex: 1
-    },
-    headerView: {
-        flex: 0.8,
-        backgroundColor: colors.primary,
-        alignItems: 'center',
-        padding: 40,
+        flex: 1,
+        backgroundColor: colors.background,
     },
     rowIcons: {
         alignItems: 'center'
     },
     contentView: {
-        flex: 1,
         backgroundColor: colors.background,
         padding: 20
     },
@@ -24,15 +18,9 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     formView: {
-        flex: 1,
         padding: 20,
-        shadowColor: '#000000',
-        shadowOffset: { width: -2, height: 4 },
-        shadowOpacity: 1,
-        shadowRadius: 3,
         borderRadius: 10,
         backgroundColor: 'white',
-        bottom: 100
     },
     userInput: {
         borderColor: colors.fontDarkGray,
@@ -42,29 +30,19 @@ export const styles = StyleSheet.create({
         padding: 10,
         marginBottom: 20
     },
-    passwordView: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        borderColor: colors.fontDarkGray,
-        borderStyle: 'solid',
-        borderWidth: 2,
-        borderRadius: 10,
-        padding: 10,
-        fontSize: 20,
-        marginBottom: 20
-    },
     textInput: {
-        fontSize: 50
+        marginLeft: 10,
+        fontSize: 16
     },
     loginButton: {
         backgroundColor: colors.primary,
         borderRadius: 40,
         flexDirection: 'row',
         paddingVertical: 5,
-        paddingHorizontal: 10,
-        width: 100,
-        justifyContent: 'space-between'
+        paddingHorizontal: 20,
+        width: 120,
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
     buttonView: {
         flexDirection: 'row',
@@ -73,5 +51,35 @@ export const styles = StyleSheet.create({
     textButton: {
         color: colors.white,
         fontSize: 16
+    },
+    orderByView: {
+        borderColor: colors.fontDarkGray,
+        borderStyle: 'solid',
+        borderWidth: 2,
+        backgroundColor: colors.white,
+        borderRadius: 10,
+        marginRight: 5,
+        color: colors.fontDarkGray
+    },
+    orderBy: {
+        height: 50,
+        color: colors.fontDarkGray,
+        fontSize: 22,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    orderByItem: {
+        fontSize: 16,
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: colors.fontDarkGray
+    },
+    floatingActionButton: {
+        width: 32,
+        height: 32,
+        backgroundColor: colors.backgroundError,
+        borderRadius: 16,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })

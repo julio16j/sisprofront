@@ -31,7 +31,7 @@ export default function CustomDrawerView({navigation, user}) {
               size={24}
               color={colors.fontDarkGray} />
           )
-        }} />
+        }} onPress={() => navigation.navigate('UserListPage')} />
         <DrawerItem label='Cadastrar Usuários' icon={() => {
           return (
             <MaterialCommunityIcons
@@ -39,7 +39,7 @@ export default function CustomDrawerView({navigation, user}) {
               size={24}
               color={colors.fontDarkGray} />
           )
-        }} />
+        }} onPress={() => {navigation.navigate('UserDetailPage', {isDetail: false})}} />
         <DrawerItem label='Sair' icon={() => {
           return (
             <MaterialCommunityIcons

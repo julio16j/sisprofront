@@ -8,3 +8,12 @@ export function mockUserModel() {
         createdDate: new Date()
     }
 }
+
+export function filterUserModelByText (user, filterText) {
+    console.log(user)
+    if (user.name.toUpperCase().includes(filterText.toUpperCase())) {
+        return true
+    } if (user.document.toUpperCase().includes(filterText.toUpperCase())) {
+        return true
+    } return false
+}

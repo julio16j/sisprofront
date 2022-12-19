@@ -16,7 +16,7 @@ export default function LoginPage({ navigation, setUser }) {
     return (
         <View style={styles.container}>
             <View style={styles.headerView}>
-                <View>
+                <View style={{alignItems: 'center'}}>
                     <MaterialCommunityIcons style={{ marginBottom: 20 }}
                         name="bank"
                         size={96}
@@ -29,10 +29,10 @@ export default function LoginPage({ navigation, setUser }) {
             <View style={styles.contentView}>
                 <View style={styles.formView}>
                     <View style={styles.userView}>
-                        <TextInput style={styles.inputText} placeholder="CPF/CNPJ" />
+                        <TextInput selectionColor={colors.black} style={styles.inputText} placeholder="CPF/CNPJ" />
                     </View>
                     <View style={styles.passwordView}>
-                        <TextInput style={styles.inputText} placeholder="Senha" />
+                        <TextInput selectionColor={colors.black} secureTextEntry={true} style={styles.inputText} placeholder="Senha" />
                         <TouchableOpacity>
                             <MaterialCommunityIcons
                                 name="eye-off"

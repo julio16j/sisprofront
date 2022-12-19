@@ -19,7 +19,7 @@ export function mockProcessModel () {
     }
 }
 
-export function filterProcessModelByText (process) {
+export function filterProcessModelByText (process, filterText) {
     if (process.client.name.toUpperCase().includes(filterText.toUpperCase())) {
         return true
     } if (process.other.name.toUpperCase().includes(filterText.toUpperCase())) {
