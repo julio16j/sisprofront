@@ -13,7 +13,7 @@ import { compareDesc } from 'date-fns'
 import RenderProcessList from './renderProcessList'
 import { filterProcessModelByText } from '../../model/processModel'
 import DefaultText from '../../components/DefaultText'
-import { getData, removeData, setData } from '../../services/asyncStorageService'
+import { getData, removeData } from '../../services/asyncStorageService'
 export default function ProcessListPage({
     route,
     navigation,

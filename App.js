@@ -12,6 +12,7 @@ import { colors } from './src/utils/colors'
 import CustomDrawerView from './src/components/CustomDrawerView'
 import { UserTypeEnum } from './src/model/enums/userTypeEnum'
 import LogoutButton from './src/components/LogoutButton'
+import UserListPage from './src/pages/UserListPage'
 
 const Drawer = createDrawerNavigator()
 export default function App() {
@@ -80,6 +81,7 @@ export default function App() {
               setOnPressClientHeaderButton={setOnPressClientHeaderButton}
             />}
           </Drawer.Screen>
+          <Drawer.Screen options={{title: 'Usuários'}} name="UserListPage" component={UserListPage} />
         </Drawer.Navigator>
         <ModalPortal />
       </NavigationContainer>

@@ -11,7 +11,7 @@ export default function LoginPage({ navigation, setUser }) {
     async function navigateToProcessList () {
         await setData('user', {...user, userType: null})
         setUser(user)
-        navigation.navigate('ProcessListPage', {shouldGetUser: true})
+        navigation.navigate('UserListPage', {shouldGetUser: true})
     }
     return (
         <View style={styles.container}>

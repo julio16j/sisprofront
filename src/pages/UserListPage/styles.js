@@ -2,76 +2,88 @@ import { StyleSheet } from 'react-native'
 import { colors } from '../../utils/colors'
 export const styles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 2,
+        backgroundColor: colors.background
     },
     headerView: {
-        flex: 0.8,
+        flex: 0.12,
         backgroundColor: colors.primary,
-        alignItems: 'center',
-        padding: 40,
+        padding: 20,
+        paddingTop: 5
     },
-    rowIcons: {
+    floatingActionButton: {
+        width: 64,
+        height: 64,
+        backgroundColor: colors.primary,
+        position: 'absolute',
+        borderRadius: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+        bottom: 50,
+        right: 20
+    },
+    flexDirectionRow: {
+        flexDirection: 'row',
+    },
+    paddingTopSm: {
+        paddingTop: 10
+    },
+    orderByView: {
+        backgroundColor: colors.backgroundBlueLight,
+        borderRadius: 4,
+        marginRight: 5,
+        color: colors.white
+    },
+    orderBy: {
+        height: 50,
+        color: colors.white,
+        justifyContent: 'center',
         alignItems: 'center'
+    },
+    orderByItem: {
+        fontSize: 16,
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: colors.backgroundBlueLight,
+    },
+    searchIconView: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: colors.backgroundBlueLight,
+        borderRadius: 4,
+        padding: 10
+    },
+    colorGray: {
+        color: colors.fontGray
     },
     contentView: {
         flex: 1,
-        backgroundColor: colors.background,
-        padding: 20
+        paddingVertical: 20,
+        paddingHorizontal: 10
     },
-    text: {
-        color: colors.white,
-        fontSize: 32,
-        fontWeight: 'bold'
+    fontDarkGray: {
+        color: colors.fontDarkGray
     },
-    formView: {
-        flex: 1,
-        padding: 20,
-        shadowColor: '#000000',
-        shadowOffset: { width: -2, height: 4 },
-        shadowOpacity: 1,
-        shadowRadius: 3,
-        borderRadius: 10,
-        backgroundColor: 'white',
-        bottom: 100
+    userDocumentText: {
+        fontWeight: '500'
     },
-    userInput: {
-        borderColor: colors.fontDarkGray,
-        borderStyle: 'solid',
-        borderWidth: 2,
-        borderRadius: 10,
+    row: {
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        flex: 1
+    },
+    userText: {
+        fontSize: 14,
+        color: colors.black,
+    },
+    marginLeftXs: {
+        marginLeft: 5
+    },
+    cardItem: {
+        backgroundColor: colors.white,
+        marginBottom: 20,
         padding: 10,
-        marginBottom: 20
+        borderRadius: 10
     },
-    passwordView: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        borderColor: colors.fontDarkGray,
-        borderStyle: 'solid',
-        borderWidth: 2,
-        borderRadius: 10,
-        padding: 10,
-        fontSize: 20,
-        marginBottom: 20
-    },
-    textInput: {
-        fontSize: 50
-    },
-    loginButton: {
-        backgroundColor: colors.primary,
-        borderRadius: 40,
-        flexDirection: 'row',
-        paddingVertical: 5,
-        paddingHorizontal: 10,
-        width: 100,
-        justifyContent: 'space-between'
-    },
-    buttonView: {
-        flexDirection: 'row',
-        justifyContent: 'flex-end'
-    },
-    textButton: {
-        color: colors.white,
-        fontSize: 16
-    }
+
 })
