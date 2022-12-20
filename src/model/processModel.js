@@ -1,6 +1,6 @@
-import { MovimentTypeEnum } from "./enums/movimentTypeEnum"
+import { MovimentTypeEnum, movimentTypeFromJson } from "./enums/movimentTypeEnum"
 import { PersonTypeEnum } from "./enums/personTypeEnum"
-import { StatusTypeEnum } from "./enums/statusTypeEnum"
+import { StatusTypeEnum, StatusTypeFromJson } from "./enums/statusTypeEnum"
 export function mockProcessModel () {
     return {
         id: Math.ceil(Math.random() * 1000000),
@@ -29,4 +29,23 @@ export function filterProcessModelByText (process, filterText) {
     } if (process.moviment.message.toUpperCase().includes(filterText.toUpperCase())) {
         return true
     } return false
+}
+
+export function processModelFromJson (process) {
+    return {
+        id: process.id,
+        number: process.numeroProcesso,
+        lastUpdateDate: new Date(process.dataAtualizacao),
+        client: {
+            name: process.poloAtivo.nomeParte.charAt(0).toUpperCase()
+                + process.poloAtivo.nomeParte.slice(1).toLowerCase()
+        },
+        other: {
+            name: process.poloPassivo.nomeParte.charAt(0).toUpperCase()
+            + process.poloPassivo.nomeParte.slice(1).toLowerCase(),
+            personType: PersonTypeEnum.Legal
+        },
+        status: StatusTypeFromJson(process.status),
+        moviment: movimentTypeFromJson(process.ultimaMovimentacao)
+    }
 }

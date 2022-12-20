@@ -48,3 +48,9 @@ export const MovimentTypeEnum = Object.freeze({
         }
     }
 })
+
+export function movimentTypeFromJson (moviment) {
+    if (!moviment) {
+        return MovimentTypeEnum.onGoing
+    }
+}

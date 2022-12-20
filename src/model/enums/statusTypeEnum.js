@@ -16,3 +16,7 @@ export const StatusTypeEnum = Object.freeze({
 export function compareStatus (a, b) {
 	return b.order - a.order
 }
+
+export function StatusTypeFromJson (statusJson) {
+	if (statusJson == 'Aberto') return StatusTypeEnum.onGoing
+}

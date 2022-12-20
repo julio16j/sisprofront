@@ -28,13 +28,13 @@ export default function RenderProcessList (process, onHelpButton) {
                 <View style={[{...styles.row}, styles.paddingTopSm, {justifyContent: 'space-between'}]}>
                     <View style={[styles.row]}>
                         <Ionicons name="person" color={colors.black} size={18} />
-                        <Text style={[styles.clientOtherText, styles.marginLeftXs]}>
+                        <Text numberOfLines={1} style={[styles.clientOtherText, styles.marginLeftXs, {flex: 1}]}>
                             { process.client.name }
                         </Text>
                     </View>
                     <View style={[styles.row, {flex: 0.83}]}>
                         <MaterialCommunityIcons name={handleIconPart(process.other.personType)} color={colors.error} size={24} />
-                        <Text style={[styles.clientOtherText, styles.marginLeftXs]}>
+                        <Text numberOfLines={1} style={[styles.clientOtherText, styles.marginLeftXs, {flex: 1}]}>
                             { process.other.name}
                         </Text>
                     </View>

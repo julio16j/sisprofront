@@ -8,12 +8,14 @@ import Ionicons from '@expo/vector-icons/Ionicons'
 import {Picker} from '@react-native-picker/picker'
 import HelpMovimentModal from '../../components/HelpMovimentModal'
 import { compareStatus } from '../../model/enums/statusTypeEnum'
-import { getProcessList } from '../../services/processService'
+import { getProcessList, getProcessByUserDocument, getAllProcess } from '../../services/processService'
 import { compareDesc } from 'date-fns'
 import RenderProcessList from './renderProcessList'
 import { filterProcessModelByText } from '../../model/processModel'
 import DefaultText from '../../components/DefaultText'
 import { getData, removeData } from '../../services/asyncStorageService'
+import Spinner from 'react-native-loading-spinner-overlay';
+import { UserTypeEnum, UserTypeFromJson } from '../../model/enums/userTypeEnum'
 export default function ProcessListPage({
     route,
     navigation,
@@ -28,6 +30,7 @@ export default function ProcessListPage({
     const [showModal, setShowModal] = useState(false)
     const [movimentDetailed, setMovimentDetailed] = useState()
     const [showSearchField, setShowSearchField] = useState(false)
+    const [loading, setLoading] = useState(false)
     let opacity = useRef(new Animated.Value(0.1)).current;
     const [user, setUser] = useState({})
     function detailMoviment (moviment) {
@@ -46,8 +49,33 @@ export default function ProcessListPage({
     function filterProcessListByText (list, filterText) {
         return list.filter((process) => filterProcessModelByText(process, filterText))
     }
+    async function asyncLoadData () {
+        setLoading(true)
+        try {
+            const userReceived = await getUserFromStorage()
+            getProcessList(userReceived)   
+        } catch (error) {
+            console.log(error)
+        } finally {
+            setLoading(false)
+        }
+    }
+    async function getProcessList (user) {
+        let response = []
+        console.log(user)
+        if (user.userType == UserTypeEnum.client) {
+            response = await getProcessByUserDocument(user.document)
+        } else {
+            response = await getAllProcess()
+        }
+        setProcessList(response)
+        setFilteredProcessList(response)
+        setShouldFilter(true)
+    }
     async function getUserFromStorage () {
-        setUser(await getData('user'))
+        let userG = await getData('user')
+        setUser({...userG, userType: UserTypeFromJson(userG.userType)})
+        return {...userG, userType: UserTypeFromJson(userG.userType)}
     }
     useEffect (() => {
         if (onPressClientHeaderButton) {
@@ -58,20 +86,17 @@ export default function ProcessListPage({
     })
     useEffect(() => {
         if (route.params.shouldGetUser) {
-            getUserFromStorage()
+            asyncLoadData()
         }
     }, [route.params])
     useEffect(() => {
         animate()
-        setProcessList(getProcessList())
-        setFilteredProcessList(getProcessList())
-        setShouldFilter(true)
     }, [])
     useEffect(() => {
         if (!shouldFilter) return
         let auxList = [...filteredProcessList]
         if (filterText) {
-            auxList = [filterProcessListByText(auxList, filterText)]
+            auxList = filterProcessListByText(auxList, filterText)
         } else {
             auxList = [...processlist]
         }
@@ -87,6 +112,10 @@ export default function ProcessListPage({
     }, [selectedOrder, filterText])
     return (
         <View style={styles.container}>
+            <Spinner
+                visible={loading}
+                animation='fade'
+            />
             <View style={styles.headerView}>
                 <View style={styles.marginLeftXs}>
                     <View style={[styles.flexDirectionRow, styles.userNameView]}>
@@ -146,12 +175,12 @@ export default function ProcessListPage({
                     renderItem={(data)=>RenderProcessList(data.item, detailMoviment)}
                     keyExtractor={(item) => item.id}/>
             </View>
-            <StatusBar style={'light'} />
             <HelpMovimentModal
                 showModal={showModal}
                 moviment={movimentDetailed}
                 closeModal={() => setShowModal(false)} 
             />
+            <StatusBar style={'light'} />
         </View>
     )
 }

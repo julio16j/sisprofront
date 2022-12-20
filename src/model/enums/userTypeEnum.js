@@ -10,3 +10,7 @@ export function UserTypeToJson (userType) {
 export function UserTypeFromJson (userTypeJson) {
 	return userTypeJson == 'client' ? UserTypeEnum.client : UserTypeEnum.admin
 }
+
+export function userTypeEnumFromApi (userTypeApi) {
+	return userTypeApi == 'Cliente' ? UserTypeEnum.client : UserTypeEnum.admin
+}

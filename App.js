@@ -14,6 +14,15 @@ import { UserTypeEnum } from './src/model/enums/userTypeEnum'
 import LogoutButton from './src/components/LogoutButton'
 import UserListPage from './src/pages/UserListPage'
 import UserDetailPage from './src/pages/UserDetailPage'
+import {decode, encode} from 'base-64'
+
+if (!global.btoa) {
+global.btoa = encode;
+}
+
+if (!global.atob) {
+global.atob = decode;
+}
 
 const Drawer = createDrawerNavigator()
 export default function App() {
